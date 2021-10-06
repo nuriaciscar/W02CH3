@@ -1,12 +1,11 @@
+
 module_exports = calculadora();
 
-// Inicio calculadora
-
-const resultados = [];
 
 // Calculadora
 
 function calculadora(num1, num2) {
+    const resultados = [];
     if ((num1 === "" || num1 === null) && (num2 === "" || num2 === null)) {
         return "Porfavor introduzca otro número";
     }
@@ -31,3 +30,4 @@ function calculadora(num1, num2) {
 calculadora();
 
 module.exports = calculadora;
+

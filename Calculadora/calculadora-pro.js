@@ -1,5 +1,4 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-alert */
+
 function calculadoraPro() {
     let newNumber;
     const numberList = [];
