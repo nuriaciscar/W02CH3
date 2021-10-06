@@ -1,38 +1,31 @@
-//Inicio calculadora
+module_exports = calculadora();
 
-let resultados = [];
-let num1 = parseFloat(prompt('Porfavor introduzca un primer número'));
-let num2 = parseFloat(prompt('Porfavor introduzca un segundo número'));
+// Inicio calculadora
 
-//Raiz cuadrada
-let raiz = Math.sqrt(num1);
-raiz = raiz.toFixed(3); //Redondear a 3 decimales 
+const resultados = [];
 
+// Calculadora
 
-//Division, aparte porque tambien tiene hasta 3 decimales 
-let div = (num1 / num2);
-div = div.toFixed(3);
+function calculadora(num1, num2) {
+    if ((num1 === "" || num1 === null) && (num2 === "" || num2 === null)) {
+        return "Porfavor introduzca otro número";
+    }
+    if (Number.isNaN(num1)) {
+        return "No existe, porfavor introduzca otro número";
+    }
 
+    let raiz = Math.sqrt(num1);
+    raiz = raiz.toFixed(3); // Redondear a 3 decimales
 
-//Calculadora
+    if (num2 === null || num2 === "" || Number.isNaN(num2)) {
+        return `La raíz cuadrada de ${num1} es ${raiz}.`;
+    }
 
-function calculadora(val1,val2){
-
-if ((num1 === ""||num1 === null) && (num2 === ""||num2 === null)){ 
-    console.log('Porfavor introduzca otro número');
-  } else if (isNaN(num1)){
-    console.log('No existe, porfavor introduzca otro número');
-  } else if (num2 === null||num2 === ""||isNaN(num2)){
-    console.log(`La raíz cuadrada de ${num1} es ${raiz}.`);
-  }
-  else{
     resultados.push(`El resultado de la suma es ${num1 + num2}`);
     resultados.push(`El resultado de la resta es ${num1 - num2}`);
     resultados.push(`El resultado de la multiplicación es ${num1 * num2}`);
     resultados.push(`El resultado de la división es ${num1 / num2}`);
-    console.log(resultados);
-  }
-
+    return resultados;
 }
 
-calculadora(num1,num2);
+calculadora();
