@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Selectores HTML
 const botonNumeros = document.querySelectorAll(".numero"); // Todos los numeros
 const botonBorrar = document.getElementById(".ac"); // TBoton de borrar
@@ -12,39 +13,6 @@ let operacionAnterior = ""; // La guardamos para poder hacer más de una operaci
 let operacion;
 
 // Eventos
-botonNumeros.forEach((boton) => {
-    boton.addEventListener("click", () => {
-        añadirNumero(boton.innerText);
-    });
-});
-
-botonOperador.forEach((boton) => {
-    boton.addEventListener("click", () => {
-        tipoOperacion(boton.innerText);
-    });
-});
-
-botonResultado.addEventListener("click", () => {
-    calcular();
-    actualizarValor();
-});
-
-botonBorrar.addEventListener("click", () => {
-    limpiar();
-    actualizarValor();
-});
-
-function tipoOperacion(op) {
-    if (operacionActual === "") {
-        return;
-    }
-    calcular();
-
-    operacion = op.toString();
-    operacionAnterior = operacionActual;
-    operacionActual = "";
-}
-
 function calcular() {
     let calculo;
     const a = parseFloat(operacionAnterior);
@@ -75,6 +43,22 @@ function calcular() {
     operacion = "";
     operacionAnterior = "";
 }
+
+function tipoOperacion(op) {
+    if (operacionActual === "") {
+        return;
+    }
+    calcular();
+
+    operacion = op.toString();
+    operacionAnterior = operacionActual;
+    operacionActual = "";
+}
+
+function actualizarValor() {
+    pantalla.value = operacionActual;
+}
+
 function añadirNumero(num) {
     // Creamos una variable num
     if (num === "." && operacionActual.includes(".")) return;
@@ -88,8 +72,26 @@ function limpiar() {
     operacion = undefined;
 }
 
-function actualizarValor() {
-    pantalla.value = operacionActual;
-}
-
 limpiar();
+
+botonNumeros.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        añadirNumero(boton.innerText);
+    });
+});
+
+botonOperador.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        tipoOperacion(boton.innerText);
+    });
+});
+
+botonResultado.addEventListener("click", () => {
+    calcular();
+    actualizarValor();
+});
+
+botonBorrar.addEventListener("click", () => {
+    limpiar();
+    actualizarValor();
+});
