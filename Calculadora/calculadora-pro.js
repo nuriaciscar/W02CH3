@@ -1,3 +1,4 @@
+
 function calculadoraPro() {
     let newNumber;
     const numberList = [];

@@ -1,4 +1,6 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable no-unused-vars */
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 // Haz el juego del Pasapalabra. El programa deberá lanzar la definición de una palabra y el usuario deberá adivinar qué palabra estamos tratando, por ejemplo: '>>>'With the letter "M", Capital of Spain, located in the center of the country. '>>>' "Madrid" '>>>'Correct, you have 1 Point!
@@ -701,11 +703,37 @@ function pasapalabra() {
     }
 }
 
+// eslint-disable-next-line spaced-comment
 function rankingOrdenado() {
-    // Ordenamos según el número de puntos
-    rankingg.sort((a, b) => b.answers - a.answers);
+    //Ordenamos según el número de puntos
+    rankingg.sort(function (a, b) {
+        return b.answers - a.answers;
+    });
     for (let i = 0; i < rankingg.length; i++) {
         console.log(`${rankingg[i].jugador}: ${rankingg[i].puntos}`);
+    }
+}
+
+function juego() {
+    // Aquí es donde tiene lugar el juego
+    generarPreguntas();
+    pasapalabra();
+    if (total < 27) {
+        alert(
+            `En total has realizado ${total}preguntas y has acertado ${aciertosTotales} y fallado ${fallosTotales}.`
+        );
+        const puntuacion = {
+            jugador: "",
+            puntos: 0,
+        };
+        puntuacion.jugador = usuario;
+        puntuacion.puntos = aciertosTotales;
+        rankingg.push(puntuacion);
+    } else if (total >= 27) {
+        alert(
+            `Juego finalizado. \nEn total has realizado ${total} preguntas y has acertado ${aciertosTotales} y fallado ${fallosTotales}.`
+        );
+        rankingOrdenado();
     }
 }
 

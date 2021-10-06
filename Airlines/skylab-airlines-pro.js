@@ -71,7 +71,7 @@ function mostrarVuelos() {
     }
 }
 
-// Si es ADMIN o USER
+
 function adminUser() {
     let nombreUsuario = prompt(
         "Porfavor especifica si eres Administrador o Usuario",

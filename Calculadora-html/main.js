@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 // Selectores HTML
 const botonNumeros = document.querySelectorAll(".numero"); // Todos los numeros
-const botonBorrar = document.getElementById(".ac"); // Boton de borrar
+const botonBorrar = document.getElementById(".ac"); // TBoton de borrar
 const botonOperador = document.getElementById("operador");
 const botonResultado = document.getElementById(".igual");
 
@@ -12,6 +12,7 @@ let operacionActual = "";
 let operacionAnterior = ""; // La guardamos para poder hacer más de una operación
 let operacion;
 
+// Eventos
 function calcular() {
     let calculo;
     const a = parseFloat(operacionAnterior);
@@ -43,12 +44,6 @@ function calcular() {
     operacionAnterior = "";
 }
 
-function limpiar() {
-    operacionActual = "";
-    operacionAnterior = "";
-    operacion = undefined;
-}
-
 function tipoOperacion(op) {
     if (operacionActual === "") {
         return;
@@ -60,8 +55,6 @@ function tipoOperacion(op) {
     operacionActual = "";
 }
 
-limpiar();
-
 function actualizarValor() {
     pantalla.value = operacionActual;
 }
@@ -72,6 +65,14 @@ function añadirNumero(num) {
     operacionActual = operacionActual.toString() + num.toString(); // Lo pasamos a texto
     actualizarValor();
 }
+
+function limpiar() {
+    operacionActual = "";
+    operacionAnterior = "";
+    operacion = undefined;
+}
+
+limpiar();
 
 botonNumeros.forEach((boton) => {
     boton.addEventListener("click", () => {
