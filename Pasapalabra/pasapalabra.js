@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 // Haz el juego del Pasapalabra. El programa deberá lanzar la definición de una palabra y el usuario deberá adivinar qué palabra estamos tratando, por ejemplo: '>>>'With the letter "M", Capital of Spain, located in the center of the country. '>>>' "Madrid" '>>>'Correct, you have 1 Point!
@@ -718,7 +719,7 @@ function bienvenida() {
         window.alert(
             `Hola! Bienvenido/a ${usuario} a Pasapalabra! \nGanarás 1 punto por cada palabra acertada de cada definición. Para salir del juego en cualquier momento escribe "END". \n¿Estás preparado/a? `
         );
-        juego();
+        pasapalabra();
     }
 }
 
