@@ -71,7 +71,6 @@ function mostrarVuelos() {
     }
 }
 
-
 function adminUser() {
     let nombreUsuario = prompt(
         "Porfavor especifica si eres Administrador o Usuario",
@@ -250,7 +249,7 @@ function buscarPrecio() {
     let precioEscogido = parseInt(
         prompt("Introduzca el precio que desea buscar:")
     );
-    if (ordenar === "más alto" || ordenar === "más alto") {
+    if (ordenar === "más alto" || ordenar === "Más alto") {
         for (let i = 0; i < flights.length; i++) {
             if (flights[i]["cost"] < precioEscogido) {
                 if (flights[i]["scale"] === true) {
@@ -265,7 +264,7 @@ function buscarPrecio() {
             }
         }
         mostrarVuelos();
-    } else if (ordenar === "mas bajo" || ordenar === "más bajo") {
+    } else if (ordenar === "mas bajo" || ordenar === "Más bajo") {
         for (let i = 0; i < flights.length; i++) {
             if (flights[i]["cost"] > precioEscogido) {
                 if (flights[i]["scale"] === true) {
